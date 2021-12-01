@@ -1,0 +1,178 @@
+*{
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: Arial;
+  }
+  
+  #wrapper{
+    display: flex;
+    height: 4em;
+    line-height: 4em;
+    justify-content: space-between;
+  }
+  
+  #logo{
+    font-size: 2em;
+    margin-left: 40px;
+    border: 1px solid white;
+    color: yellow
+  }
+  
+  .main-menu{
+    float: right;
+    font-size: 20px;
+    list-style-type: none;
+    padding-right: 130px;
+  }
+  
+  .main-menu li{
+    display: inline-block;
+  }
+  
+  .main-menu li a{
+    text-decoration: none;
+    color: white;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    transition: 1s ease;
+  }
+  
+  .main-menu li a:hover{
+    background-color: #fff;
+    color: #000;
+  }
+  
+  li.menu1 a{
+    background-color: #fff;
+    color: #000;
+  }
+
+header{
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://phunugioi.com/wp-content/uploads/2021/11/hinh-anh-chill-lofi-tam-trang-buon-nhat.jpg);
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  #title1{
+    text-align: center;
+    position: relative;
+    top:50px;
+
+  }
+  
+  #title2{
+    text-align: center;
+    position: relative;
+    top: 35%;
+  }
+  
+  .title1, .title2{
+    font-style:100px;
+    color: white;
+  }
+  
+  #button1{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  
+  #button2{
+    position: absolute;
+    top: 73%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .thongtin, .trangchu{
+    border: 1px solid white;
+    padding: 10px 30px;
+    color: #fff;
+    text-decoration: none;
+    transition: 1s ease;
+  }
+  
+  .thongtin:hover{
+    background-color: white;
+    color: #000;
+  }
+  
+  .trangchu:hover{
+    background-color: white;
+    color: #000;
+  }
+
+  #audio{
+      display: none;
+  }
+
+  @media(max-width: 931px){
+    .main-menu{
+        font-size: 20px;
+        padding-right: 60px;
+      }
+
+      #button1{
+          position: absolute;
+          top: 45%;
+      }
+
+      #button2{
+          position: absolute;
+          top: 78%;
+      }
+  }
+
+  @media(max-width: 700px){
+      #logo{
+        font-size: 30px;
+    }
+    .main-menu{
+        font-size: 13px;
+        padding-right: 20px;
+      }
+
+      #button1{
+          position: absolute;
+          top: 43%;
+      }
+
+      #button2{
+          position: absolute;
+          top: 80%;
+      }
+  }
+
+  @media(max-width: 500px){
+    #logo{
+      font-size: 15px;
+      margin-left: 10px;
+  }
+  .main-menu{
+      font-size: 8px;
+      padding-right: 10px;
+    }
+
+    #button1{
+        position: absolute;
+        top: 45%;
+        left: 40%;
+        transform: translate(-30%,-30%)
+    }
+
+    #title2{
+        position: absolute;
+        top: 55%;
+    }
+
+    #button2{
+        position: absolute;
+        top: 73%;
+    }
+}
