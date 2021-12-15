@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TahpMusic</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+<style>
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+  }
+  
+  ul{
+    list-style-type: none;
+  }
+  
+  #toggle{
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    display: none;
+  }
+  
+  :root {
+    --primary: #ddd;
+    --dark: #333;
+    --light: #fff;
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  }
+  
+  html {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--dark);
+  }
+  
+  body {
+    background: #ccc;
+    margin: 30px 50px;
+    line-height: 1.4;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+
+  h1{
+      justify-content: center;
+  }
+  
+  .wrapper {
+    display: grid;
+    grid-gap: 20px;
+  }
+  
+  .main-nav ul {
+    display: grid;
+    grid-gap: 20px;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .main-nav a {
+    background: var(--primary);
+    display: block;
+    text-decoration: none;
+    padding: 0.8rem;
+    text-align: center;
+    color: var(--dark);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow);
+  }
+  
+  .main-nav a:hover {
+    background: var(--dark);
+    color: var(--light);
+  }
+
+  .top-container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas:
+      'showcase showcase top-box-a'
+      'showcase showcase top-box-b';
+  }
+  
+  .title{
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .showcase {
+    grid-area: showcase;
+    min-height: 400px;
+    background: url("https://phunugioi.com/wp-content/uploads/2020/08/hinh-nen-dong-dep-1.gif");
+    background-size: cover;
+    background-position: center;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  }
+  
+  .showcase h1 {
+    font-size: 2rem;
+    margin-bottom: 0;
+    color: var(--light);
+  }
+  
+  .showcase p {
+    font-size: 1.3rem;
+    margin-top: 0;
+    color: var(--light);
+  }
+  
+  .boxes {
+    padding-top: 15px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+      
+  .top-box {
+    background: var(--primary);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+  }
+  
+  .top-box{
+    font-size: 2.5rem;
+  }
+  
+  .top-box-a {
+    grid-area: top-box-a;
+  }
+  
+  .top-box-b {
+    grid-area: top-box-b;
+  }
+  
+  .box {
+    background: var(--primary);
+    text-align: center;
+    padding: 1rem 1rem;
+    box-shadow: var(--shadow);
+  }
+      
+  .btn{
+    border: none;
+    color: white;
+    margin: 30px;
+    padding: 20px 30px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.5s ease;
+    transition-property: box-shadow;
+    width: 120px;
+    text-align: center;
+  }
+  
+.btn-1{
+    background:#FFC300;
+    box-shadow: 0 0 25px #FFC300; 
+}
+
+.btn-1:hover{
+  box-shadow: 0 0 5px #FFC300,
+              0 0 25px #FFC300,
+              0 0 75px #FFC300,
+              0 0 100px #FFC300;
+}
+  
+  footer {
+    margin-top: 2rem;
+    background: var(--dark);
+    color: var(--light);
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  li.menu1 a{
+    background-color: black;
+    color: white;
+  }
+  
+  @media (max-width: 500px) {
+    .top-container {
+      grid-template-areas:
+        'showcase'
+        'top-box-a'
+        'top-box-b';
+    }
+    #menu-nav{
+      flex-direction: column;
+      text-align: center;
+    }
+    #toggle{
+      display: block;
+    }
+    nav{
+      display: none;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .top-container {
+      grid-template-areas:
+        'showcase showcase'
+        'top-box-a top-box-b';
+    }
+  
+    .showcase h1 {
+      font-size: 2.5rem;
+    }
+  
+    .main-nav ul {
+      grid-template-columns: 1fr;
+    }
+  
+    .btn {
+      display: block;
+      text-align: center;
+      margin: auto;
+    }
+  }
+
+</style>
+<body>
+    <script>
+      $(document).ready(function(){
+        $('#toggle').click(function(){
+          $('nav').slideToggle();
+        });
+      })
+    </script>
+    <div class="wrapper">
+        <div id="toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="">Trang chủ</a></li>
+            <li class="menu1"><a href="">Thể Loại</a></li>
+            <li><a href="">Quốc Gia</a></li>
+            <li><a href="">Ca Sĩ</a></li>
+            <li><a href="">Mashup</a></li>
+          </ul>
+        </nav>
+      <section class="top-container">
+        <header class="showcase">
+          <a href="#Chill" class="btn btn-1">Chill</a>
+        </header>
+        <div class="top-box top-box-a">
+        <h4>Trần Thịnh Phát</h4>
+      </div>
+      <div class="top-box top-box-b">
+        <h4>Phạm Quốc Thái</h4>
+      </div>
+      </section>
+      <div id="Chill">
+        <p class="title">- Chill:</p>
+            <section class="boxes">
+                <div class="box">
+                  <iframe width="270" height="200" src="https://www.youtube.com/embed/wnSNyE2hVu4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <h3>
+                    Đi Để Trở Về 
+                  </h3>
+                  <p>SooBin Hoàng Sơn</p>
+                </div>
+                <div class="box">
+                  <iframe width="270" height="200" src="https://www.youtube.com/embed/0VC6euBtKkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <h3>
+                    Có Chàng Trai Viết Lên Cây
+                  </h3>
+                  <p>Phan Mạnh Quỳnh</p>
+                </div>
+                <div class="box">
+                  <iframe width="270" height="200" src="https://www.youtube.com/embed/kV3famkRaA4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <h3>
+                    Tâm Sự Tuổi 30
+                  </h3>
+                  <p>Trịnh Thăng Bình</p>
+                </div>
+                <div class="box">
+                  <iframe width="270" height="200" src="https://www.youtube.com/embed/sK17eMaPo0Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <h3>
+                    6h Chill
+                  </h3>
+                  <p> BẠN CÓ TÀI MÀ </p>
+                </div>
+                </section>
+                <section class="boxes">
+                    <div class="box">
+                      <iframe width="270" height="200" src="https://www.youtube.com/embed/Zzn9-ATB9aU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <h3>
+                        Nàng Thơ  
+                      </h3>
+                      <p>Hoàng Dũng</p>
+                    </div>
+                    <div class="box">
+                      <iframe width="270" height="200" src="https://www.youtube.com/embed/OuNo8Tkb3lI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <h3>
+                        Đường Tôi Chở Em Về
+                      </h3>
+                      <p>buitruonglinh</p>
+                    </div>
+                    <div class="box">
+                      <iframe width="270" height="200" src="https://www.youtube.com/embed/59uP6DOkYTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <h3>
+                        Cô Ấy Nói 
+                      </h3>
+                      <p>Ngô Anh Đạt x Freak D</p>
+                    </div>
+                    <div class="box">
+                      <iframe width="270" height="200" src="https://www.youtube.com/embed/OS2FijYxXPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <h3>
+                        Gửi Vợ Tương Lai
+                      </h3>
+                      <p>KAYDEE ft LONG NÓN LÁ</p>
+                    </div>
+                </section>
+                <section class="boxes">
+                    <div class="box">
+                      <iframe width="270" height="200" src="https://www.youtube.com/embed/KhTCatAKVpk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <h3>
+                        Vì Đã Lỡ Yêu Em Nhiều  
+                      </h3>
+                      <p>Justatee</p>
+                    </div>
+                    <div class="box">
+                      <iframe width="270" height="200" src="https://www.youtube.com/embed/WDA7OIXXW1U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <h3>
+                        Em Thích
+                      </h3>
+                      <p>SEAN x Lửa</p>
+                    </div>
+                    <div class="box">
+                      <iframe width="270" height="200" src="https://www.youtube.com/embed/HZi4eJXWZU0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <h3>
+                        Rồi Tới Luôn
+                      </h3>
+                      <p>Nal</p>
+                    </div>
+                    <div class="box">
+                      <iframe width="270" height="200" src="https://www.youtube.com/embed/_Hwmfe07VtI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <h3>
+                        Em Làm Gì Mùa Dịch  
+                      </h3>
+                      <p>qnt x kris d</p>
+                    </div>
+                </section>
+                <section class="boxes">
+                    <div class="box">
+                      <iframe width="270" height="200" src="https://www.youtube.com/embed/qk1zQEsus24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <h3>
+                        Hướng Dương 
+                      </h3>
+                      <p>Changg</p>
+                    </div>
+                    <div class="box">
+                      <iframe width="270" height="200" src="https://www.youtube.com/embed/gL4S5zN9dJk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <h3>
+                        Sẵn Sàng Yêu Em Đi Thôi
+                      </h3>
+                      <p>Woni x Minh Tú</p>
+                    </div>
+                    <div class="box">
+                      <iframe width="270" height="200" src="https://www.youtube.com/embed/-YDSTATCLJo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <h3>
+                        Cưa Là Đổ
+                      </h3>
+                      <p>Phát Hồ X2X</p>
+                    </div>
+                    <div class="box">
+                      <iframe width="270" height="200" src="https://www.youtube.com/embed/Xm7k9573ENc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <h3>
+                        Lung Linh
+                      </h3>
+                      <p>GUA ft. Tranc</p>
+                    </div>
+                </section> 
+        </div>
+    </div>
+      <footer>
+        <p>
+          Bản quyền của Phát và Thái<br/>
+          Mọi thắc mắc liên hệ:<br/>
+          Facebook Thái: <a href="https://www.facebook.com/profile.php?id=100010082673261"target="_blank">Thái Thất Thu</a><br/>
+          Facebook Phát: <a href="https://www.facebook.com/profile.php?id=100040147838900"target="_blank">Phát Phê Pha</a><br/>
+          Gmail: phatcuteee@gmail.com & thaipham1010@gmail.com<br/>
+          Một Bản Quyền Của Phátcuteee và Thái Thất Thu
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
