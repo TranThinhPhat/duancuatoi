@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TahpMusic</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  </head>
+  
+  <style>
+*{
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style-type: none;
+  color: white;
+}
+
+ul{
+  list-style-type: none;
+}
+
+#toggle{
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+:root {
+  --primary: #ddd;
+  --dark: #333;
+  --light: #fff;
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--dark);
+}
+
+body {
+  background: #ccc;
+  margin: 30px 50px;
+  line-height: 1.4;
+}
+
+.bnt {
+  background: var(--dark);
+  color: var(--light);
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.main-nav ul {
+  display: grid;
+  grid-gap: 20px;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.main-nav a {
+  background: var(--primary);
+  display: block;
+  text-decoration: none;
+  padding: 0.8rem;
+  text-align: center;
+  color: var(--dark);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow);
+}
+
+.main-nav a:hover {
+  background: var(--dark);
+  color: var(--light);
+}
+
+/* Top Container */
+.top-container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas:
+    'showcase showcase top-box-a'
+    'showcase showcase top-box-b';
+}
+
+.title{
+  text-align: center;
+  font-size: 2rem;
+}
+
+.showcase {
+  grid-area: showcase;
+  min-height: 400px;
+  background: url("https://phunugioi.com/wp-content/uploads/2020/08/hinh-nen-dong-dep-1.gif");
+  background-size: cover;
+  background-position: center;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.showcase h1 {
+  font-size: 2rem;
+  margin-bottom: 0;
+  color: var(--light);
+}
+
+.showcase p {
+  font-size: 1.3rem;
+  margin-top: 0;
+  color: var(--light);
+}
+
+.boxes {
+  padding-top: 15px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+    
+.top-box {
+  background: var(--primary);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.top-box{
+  font-size: 2.5rem;
+}
+
+.top-box-a {
+  grid-area: top-box-a;
+}
+
+.top-box-b {
+  grid-area: top-box-b;
+}
+
+.box {
+  background: var(--primary);
+  text-align: center;
+  padding: 1rem 1rem;
+  box-shadow: var(--shadow);
+  background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://img1.kienthucvui.vn/uploads/2019/10/10/anh-bia-tinh-yeu-dep_105704407.jpg);
+  background-size: auto;
+}
+    
+.btn{
+  border: none;
+  color: white;
+  margin: 30px;
+  padding: 20px 30px;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.5s ease;
+  transition-property: box-shadow;
+  width: 210px;
+}
+
+.btn-1{
+  background: #33A1FF;
+  box-shadow: 0 0 25px #33A1FF;
+}
+
+.btn-1:hover{
+  box-shadow: 0 0 5px #33A1FF,
+              0 0 25px #33A1FF,
+              0 0 75px #33A1FF,
+              0 0 100px #33A1FF;
+}
+    
+h4{
+  color: black;
+}
+
+footer {
+  margin-top: 2rem;
+  background: var(--dark);
+  color: var(--light);
+  text-align: center;
+  padding: 1rem;
+}
+
+li.menu1 a{
+  background-color: black;
+  color: white;
+}
+    
+.btn-2{
+  background:#CC66CC;
+  box-shadow: 0 0 25px #CC66CC; 
+}
+
+.btn-2:hover{
+  box-shadow: 0 0 5px #CC66CC,
+              0 0 25px #CC66CC,
+              0 0 75px #CC66CC,
+              0 0 100px #CC66CC;
+}
+
+.btn-3{
+  background:#1CD296 ;
+  box-shadow: 0 0 25px #1CD296 ; 
+}
+
+.btn-3:hover{
+  box-shadow: 0 0 5px #1CD296,
+              0 0 25px #1CD296,
+              0 0 75px #1CD296,
+              0 0 100px #1CD296;
+}
+
+.btn-4{
+  background:#FF6666;
+  box-shadow: 0 0 25px #FF6666; 
+}
+
+.btn-4:hover{
+  box-shadow: 0 0 5px #FF6666,
+              0 0 25px #FF6666,
+              0 0 75px #FF6666,
+              0 0 100px #FF6666;
+}
+
+.btn-5{
+    background:#9933CC;
+    box-shadow: 0 0 25px #9933CC; 
+}
+
+.btn-5:hover{
+  box-shadow: 0 0 5px #9933CC,
+              0 0 25px #9933CC,
+              0 0 75px #9933CC,
+              0 0 100px #9933CC;
+}
+
+.btn-6{
+  background:#CCFF33;
+  box-shadow: 0 0 25px #CCFF33; 
+}
+
+.btn-6:hover{
+  box-shadow: 0 0 5px #CCFF33,
+              0 0 25px #CCFF33,
+              0 0 75px #CCFF33,
+              0 0 100px#CCFF33;
+}
+
+.btn-7{
+  background:#FF99FF;
+  box-shadow: 0 0 25px #FF99FF; 
+}
+
+.btn-7:hover{
+  box-shadow: 0 0 5px #FF99FF,
+              0 0 25px #FF99FF,
+              0 0 75px #FF99FF,
+              0 0 100px #FF99FF;
+}
+
+.btn-8{
+    background:#EC861A;
+    box-shadow: 0 0 25px #EC861A; 
+}
+
+.btn-8:hover{
+  box-shadow: 0 0 5px #EC861A,
+              0 0 25px #EC861A,
+              0 0 75px #EC861A,
+              0 0 100px #EC861A;
+}
+
+@media (max-width: 700px) {
+  .top-container {
+    grid-template-areas:
+      'showcase showcase'
+      'top-box-a top-box-b';
+  }
+
+  .showcase h1 {
+    font-size: 2.5rem;
+  }
+
+  .main-nav ul {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    display: block;
+    text-align: center;
+    margin: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .top-container {
+    grid-template-areas:
+      'showcase'
+      'top-box-a'
+      'top-box-b';
+  }
+  #menu-nav{
+    flex-direction: column;
+    text-align: center;
+  }
+  #toggle{
+    display: block;
+  }
+  nav{
+    display: none;
+  }
+}
+  </style>
+  
+  <body>
+    <script>
+      $(document).ready(function(){
+        $('#toggle').click(function(){
+          $('nav').slideToggle();
+        });
+      })
+    </script>
+    <div class="wrapper">
+        <div id="toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="">Trang chủ</a></li>
+            <li class="menu1"><a href="">Thể Loại</a></li>
+            <li><a href="">Quốc Gia</a></li>
+            <li><a href="">Ca Sĩ</a></li>
+            <li><a href="">Mashup</a></li>
+          </ul>
+        </nav>
+      <section class="top-container">
+        <header class="showcase">
+          <h1>
+            Chào mừng bạn đến với trang nghe nhạc của tôi.
+          </h1>
+          <p>
+            Hãy cùng tôi trải nghiệm nào 
+          </p>
+        </header>
+        <div class="top-box top-box-a">
+        <h4>Trần Thịnh Phát</h4>
+      </div>
+      <div class="top-box top-box-b">
+        <h4>Phạm Quốc Thái</h4>
+      </div>
+      </section>
+      <p class="title">
+        - Thể Loại:
+      </p>
+      <section class="boxes">
+        <div class="box">
+          <button class="btn btn-1"><a href="https://tranthinhphat.github.io/duancuatoi/Remix.html">Remix</a></button>
+          <p>Remix (có thể gọi là Phối lại) là một phiên bản khác của một ca khúc thu âm, được tạo ra từ phiên bản gốc. Thuật ngữ này cũng được sử dụng cho các biến đổi của phương tiện truyền thông.(phim, văn học, một loại sôđa chanh mang tên Sprite Remix v.v...).</p>
+        </div>
+        <div class="box">
+          <button class="btn btn-2"><a href="https://tranthinhphat.github.io/duancuatoi/GiaDinh.html">Gia Đình</a></button>
+          <p>- Gia đình là một cộng đồng người sống chung và gắn bó với nhau bởi các mối quan hệ tình cảm, quan hệ hôn nhân, quan hệ huyết thống, quan hệ nuôi dưỡng và/hoặc quan hệ giáo dục. Gia đình có lịch sử từ rất sớm và đã trải qua một quá trình phát triển lâu dài.</p>
+        </div>
+        <div class="box">
+          <button class="btn btn-3"><a href="https://tranthinhphat.github.io/duancuatoi/BanBe.html">Bạn Bè</a></button>
+          <p>- Tình bạn (bạn bè) là mối quan hệ tình cảm hai chiều giữa con người với nhau. Nó là một hình thức liên kết giữa các cá nhân mạnh mẽ hơn so với một tổ chức kiểu hiệp hội.</p>
+        </div>
+        <div class="box">
+          <button class="btn btn-4"><a href="https://tranthinhphat.github.io/duancuatoi/TinhYeu.html">Tình Yêu</a></button>
+          <p>- Tình yêu, hay ái tình, là một loạt các cảm xúc, trạng thái tâm lý và thái độ khác nhau dao động từ tình cảm cá nhân.</p>
+        </div>
+      </section>
+      <section class="boxes">
+        <div class="box">
+          <button class="btn btn-5"><a href="https://tranthinhphat.github.io/duancuatoi/Buon.html">Buồn</a></button>
+          <p>- Thất tình là trạng thái một chiều trong quan hệ luyến ái không được bên kia đáp lại tình cảm của mình dành cho đối tượng một cách tha thiết, việc từ chối đáp lại tình cảm này được thực hiện công khai hoặc ngầm hiểu là như vậy.</p>
+        </div>
+        <div class="box">
+          <button class="btn btn-6"><a href="https://tranthinhphat.github.io/duancuatoi/Rap.html">Rap</a></button>
+          <p>- Rap là một hình thức nghệ thuật trong văn hóa hip hop xuất phát từ Âu Mỹ và được đặc trưng bằng việc trình diễn thông qua việc nói hoặc hô vang lời bài hát, ca từ một cách có vần điệu, kết hợp với động tác nhảy nhót, tạo hình. Rap thường không có cao độ và trường độ mà người rap có thể đọc nhanh hay chậm tùy ý.
+        </div>
+        <div class="box">
+          <button class="btn btn-7"><a href="https://tranthinhphat.github.io/duancuatoi/Chill.html">Chill</a></button>
+          <p>- Chill hay còn gọi là Thư giãn được hiểu là việc bạn để cho tâm trí và cơ thể được nghỉ ngơi. Đây là một phương pháp hữu ích để quản lý những lo lắng, căng thẳng và phản ứng với những cảm xúc tiêu cực.</p>
+        </div>
+        <div class="box">
+          <button class="btn btn-8"><a href="https://tranthinhphat.github.io/duancuatoi/EDM.html">EDM</a></button>
+          <p>- EDM (tiếng Anh: Electronic dance music) hay còn gọi là Nhạc nhảy điện tử được mô tả như một thể loại nhạc có tiết tấu mạnh kế thừa từ nhạc disco của những năm 1970 và ở một vài khía cạnh nào đó.</p>
+        </div>
+      </section>
+      <footer>
+        <p>
+          Bản quyền của Phát và Thái<br/>
+          Mọi thắc mắc liên hệ:<br/>
+          Facebook Thái: <a href="https://www.facebook.com/profile.php?id=100010082673261"target="_blank">Thái Thất Thu</a><br/>
+          Facebook Phát: <a href="https://www.facebook.com/profile.php?id=100040147838900"target="_blank">Phát Phê Pha</a><br/>
+          Gmail: phatcuteee@gmail.com & thaipham1010@gmail.com<br/>
+          Một Bản Quyền Của Phátcuteee và Thái Thất Thu
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
